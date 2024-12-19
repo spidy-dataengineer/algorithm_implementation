@@ -20,4 +20,14 @@ while True:
     result += second # 2번째 큰 수를 첫 번째 큰 수 대신에 더함
     M -= 1 # 결과에 더해 나갈 때 마다 총 더해야 될 횟수 줄여서 루프 줄이기
 
+
+"""
+count = int(m / (k+1)) * k
+count += m % (k + 1)
+
+result = 0
+result += (count) * first # 가장 큰 수 더하기
+result += (m - count) * second # 두 번째로 큰 수 더하기
+"""
+
 print(result)

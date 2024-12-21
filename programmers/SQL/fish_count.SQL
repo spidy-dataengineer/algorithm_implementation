@@ -32,4 +32,15 @@ FROM (
 GROUP BY A.FISH_TYPE
 HAVING AVG(A.LENGTH) >= 33
 
--- 더 줄일 수 있을 것 같음
+-- 더 줄일 수 있을 것 같음, 안되는 이유는?
+SELECT COUNT(A.FISH_TYPE) AS FISH_COUNT,
+       MAX(A.LENGTH) AS MAX_LENGTH,
+       A.FISH_TYPE
+FROM (
+        SELECT FISH_TYPE,
+                CASE WHEN LENGTH IS NULL THEN 10
+                     ELSE LENGTH END AS LENGTH
+        FROM FISH_INFO
+        ) A
+GROUP BY A.FISH_TYPE
+HAVING AVG(A.LENGTH) >= 33;

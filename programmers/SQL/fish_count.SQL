@@ -1,4 +1,4 @@
--- 코드를 작성해주세요
+-- https://school.programmers.co.kr/learn/courses/30/lessons/298519
 SELECT B.FISH_COUNT,
        B.MAX_LENGTH,
        B.FISH_TYPE

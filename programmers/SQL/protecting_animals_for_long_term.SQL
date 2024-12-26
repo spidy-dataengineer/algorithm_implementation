@@ -1,0 +1,8 @@
+SELECT A.NAME,
+       A.DATETIME
+FROM ANIMAL_INS A
+LEFT OUTER JOIN ANIMAL_OUTS B
+ON A.ANIMAL_ID = B.ANIMAL_ID
+WHERE B.DATETIME IS NULL -- 동물 보호소에서 나간 기록이 없는 데이터만 필터하기
+ORDER BY A.DATETIME -- 오래된 순으로 정렬하기
+LIMIT 3; -- 3위까지만 나타내기

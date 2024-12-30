@@ -1,0 +1,17 @@
+SELECT B.EMP_NO,
+       B.EMP_NAME,
+       CASE WHEN SUM(C.SCORE)/2 >= 96 THEN "S"
+            WHEN SUM(C.SCORE)/2 >= 90 THEN "A"
+            WHEN SUM(C.SCORE)/2 >= 80 THEN "B"
+            ELSE "C"
+            END AS GRADE,
+       CASE WHEN SUM(C.SCORE)/2 >= 96 THEN SAL * 0.2
+            WHEN SUM(C.SCORE)/2 >= 90 THEN SAL * 0.15
+            WHEN SUM(C.SCORE)/2 >= 80 THEN SAL * 0.1
+            ELSE 0
+            END AS BONUS
+FROM HR_EMPLOYEES B
+INNER JOIN HR_GRADE C
+ON B.EMP_NO = C.EMP_NO
+GROUP BY B.EMP_NO,B.EMP_NAME
+ORDER BY B.EMP_NO;
